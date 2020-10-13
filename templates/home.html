@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "show_links.html" import show_links %}
+{% block title %} Home {% endblock %}
+{% block nav %}
+{{ show_links(user) }}
+{% endblock %} 
+{% block body %}
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="page-header">
+        <h1>Answered Questions</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="list-group">
+            {% for answered in answered_result %}
+            <a href="{{ url_for('question',question_id = answered['question_id']) }}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{ answered['q.question_text'] }}</h4>
+              <p class="list-group-item-text">Asked by: {{ answered['asker_name'] }}</p>
+              <p class="list-group-item-text">Answered by: {{answered['expert_name'] }}</p>
+            </a>
+            {% endfor %}
+          </div>
+        </div><!-- /.col-lg-12 -->
+      </div>
+
+ {% endblock %}

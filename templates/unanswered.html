@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "show_links.html" import show_links %}
+{% block title %} Unanswered{% endblock %}
+{% block nav %}
+{{ show_links(user) }}
+{% endblock %} 
+{% block body %}
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="page-header">
+        <h1>Questions For You</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="list-group">
+            {% for question in experts_result %}
+            <a href="{{ url_for('answer',question_id = question['id']) }}" class="list-group-item">
+              <h4 class="list-group-item-heading">Question: {{ question['QUESTION_TEXT'] }}</h4>
+              <p class="list-group-item-text">Asked By: {{ question['NAME'] }}</p>
+            </a>
+            {% endfor %}
+          </div>
+        </div><!-- /.col-lg-12 -->
+      </div>
+
+{% endblock %}

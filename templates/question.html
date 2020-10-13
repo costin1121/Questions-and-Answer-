@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "show_links.html" import show_links %}
+{% block title %} Question: {{ question_result['QUESTION_TEXT'] }} {% endblock %}
+{% block nav %}
+{{ show_links(user) }}
+{% endblock %} 
+{% block body %}
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="jumbotron">
+        <h1>{{ question_result['QUESTION_TEXT'] }}</h1>
+        <p>{{ question_result['ANSWER_TEXT'] }}</p>
+        <p><a class="btn btn-primary btn-lg">Asked By: {{ question_result['asker_name'] }}</a></p>
+        <p><a class="btn btn-primary btn-lg">Answered By: {{ question_result['expert_name'] }}</a></p>
+      </div>
+{% endblock %}
