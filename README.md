@@ -1,2 +1,2 @@
 # Questions-and-Answer-
-Questions and Answer website developed in Python usign Flask framework
+A small Questions and Answer website developed in Python usign Flask framework
